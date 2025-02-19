@@ -18,10 +18,22 @@ for (let i = 0; i < 3; i++) {
 
     for (let j = 0; j < 3; j++) {
         const index = i * 3 + j; 
+
         const my_btn = document.createElement("button");
         my_btn.classList.add("mybtn");
-        my_btn.innerHTML = index; // 初期値だけ管理している番号で表示する
 
+        //盤面の線デザインするためのcss
+        if(index%3!=2){
+            my_btn.classList.add("right-line");
+        }
+
+        if(index <= 5){
+            my_btn.classList.add("bottom-line");
+        }
+
+        my_btn.innerHTML = index; // 初期値だけ管理している番号で表示する
+        
+        
         // ボタンにイベントを追加
         my_btn.addEventListener("mouseover", () => {
             if (!is_click_list[index]) {
@@ -46,7 +58,8 @@ for (let i = 0; i < 3; i++) {
         });
 
         row_block.append(my_btn);
-    }
+  
+}
 
     stage_container.append(row_block);
 }
