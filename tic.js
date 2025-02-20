@@ -37,7 +37,8 @@ for (let i = 0; i < 3; i++) {
         // ボタンにイベントを追加
         my_btn.addEventListener("mouseover", () => {
             if (!is_click_list[index]) {
-                my_btn.innerHTML = "gray_user_mark"; // ホバー時のテキスト
+                my_btn.innerHTML = "✖"; // ホバー時のテキスト、いったんXにしてターンの切り替え機能ができたら再度書き直す
+                my_btn.classList.add("custom-hover")
             }
         });
 
