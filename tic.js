@@ -1,8 +1,14 @@
 let is_click_list = new Array(9).fill(false); //各マスがクリックされたかどうかを管理するリスト
 let my_root = document.getElementById("target"); //表示ページのルートタグ取得
 let stage_container = document.createElement("div"); //盤面のコンテナ
+let footer = document.createElement("h3"); //フッタータグ
+footer.innerHTML = "〇's Turn";//初期ターン表示
+footer.classList.add("mt-5","mt-4");//ターン表示するタグの位置調整
+
 my_root.classList.add("d-flex","justify-content-center","align-items-center","flex-column");
 stage_container.classList.add("mt-5");
+
+
 
 let your_turn = 0;    //〇✖の順番
 let game_board = [
@@ -55,6 +61,10 @@ for (let i = 0; i < 3; i++) {
             }else if(!gameJudge() && your_turn === 8){
                 console.log("引き分け");
             }
+
+            footer.innerHTML = your_turn%2 ? "✖'s Turn" : "〇's Turn"; //ターン表示の切り替え
+            
+
         });
 
         row_block.append(my_btn);
@@ -120,9 +130,6 @@ function gameJudge(){
 let header = document.createElement("h2");
 header.innerHTML = "Tic Tac Toe ";
 
-let footer = document.createElement("p");
-footer.innerHTML = "user's Turn";
-footer.classList.add("mt-3");
 
 my_root.append(header);
 my_root.append(stage_container);
