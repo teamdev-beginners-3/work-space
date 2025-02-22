@@ -56,6 +56,11 @@ for (let i = 0; i < 3; i++) {
         my_btn.addEventListener("click", () => {
             is_click_list[index] = true; // クリックしたボタンを固定
             gameStart(my_btn, index);
+
+            current_turn = your_turn %2 ? "✖'s Turn" : "〇's Turn";
+            footer.innerHTML = current_turn;
+
+
             if(gameJudge()){
                 console.log("終了");
             }else if(!gameJudge() && your_turn === 8){

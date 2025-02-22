@@ -26,3 +26,16 @@ button:focus {
     margin: 0 auto;
     margin-top: 6rem;
 }
+
+
+.mybtn {
+    font-size: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ↓だけだと、マスのX or Oを確定させた後もグレーになっちゃうから、何か方法を模索する */
+.custom-hover:hover {
+    color: rgba(153, 150, 150, 0.7) !important
+}
