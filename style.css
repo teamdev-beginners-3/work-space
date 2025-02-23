@@ -24,6 +24,7 @@ button:focus {
 
 #target{
     margin: 0 auto;
+    height: 100vh;
 }
 
 .mybtn {
@@ -37,3 +38,31 @@ button:focus {
 .custom-hover:hover {
     color: rgba(153, 150, 150, 0.7) !important
 }
+
+.game-end-screen {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);  /*透明度はopacityで変えられるが、opacityは子要素にも適用されるので、rgbaのほうがいい*/
+    position: absolute;
+}
+
+.end-button {
+    height: 60px;
+    width: 180px;
+    text-align: center;
+    font-size: 30px;
+    background-color: white;
+    color: black;
+}
+
+.end-button:hover {
+    background: black;
+    color: white;
+    border: 2px solid white;
+}
+
+.end-screen-font {
+    font-size: 80px;
+    color: white;
+}
+

@@ -51,10 +51,12 @@ for (let i = 0; i < 3; i++) {
         my_btn.addEventListener("click", () => {
             is_click_list[index] = true; // クリックしたボタンを固定
             gameStart(my_btn, index);
-            if(gameJudge()){
-                console.log("終了");
-            }else if(!gameJudge() && your_turn === 8){
-                console.log("引き分け");
+            if(gameJudge() && your_turn % 2 === 0){
+                gameEnd(-1);
+            }else if(gameJudge() && your_turn % 2 === 1){
+                gameEnd(1);
+            }else if(!gameJudge() && your_turn === 9){
+                gameEnd(0);
             }
         });
 
@@ -116,7 +118,32 @@ function gameJudge(){
     return false;
 }
 
+function gameEnd(win){
+    let end_screen = document.createElement("div");
+    end_screen.classList.add("d-flex", "justify-content-center", "align-items-center", "flex-column", "game-end-screen");
+    let end_button = document.createElement("button");
+    end_button.classList.add("end-button");
+    end_button.innerHTML = "Restart";
+    let winner = document.createElement("p");
+    winner.classList.add("end-screen-font");
 
+    if(win === 1){
+        winner.innerHTML = "〇's Wins!!!";
+    }else if(win === -1){
+        winner.innerHTML = "✖'s Wins!!!";
+    }else{
+        winner.innerHTML = "Draw!";
+    }
+    end_screen.append(winner);
+    end_screen.append(end_button);
+
+    
+    my_root.append(end_screen);
+
+    end_button.addEventListener("click" ,() =>{
+        window.location.reload();//windowの再読み込みを使っているので、別の方法を考える
+    });
+}
 
 let header = document.createElement("h2");
 header.innerHTML = "Tic Tac Toe ";
