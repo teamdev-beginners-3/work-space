@@ -43,8 +43,13 @@ for (let i = 0; i < 3; i++) {
         // ボタンにイベントを追加
         my_btn.addEventListener("mouseover", () => {
             if (!is_click_list[index]) {
-                my_btn.innerHTML = "✖"; // ホバー時のテキスト、いったんXにしてターンの切り替え機能ができたら再度書き直す
-                my_btn.classList.add("custom-hover")
+                if (your_turn % 2 == 0) {
+                    my_btn.innerHTML = "〇";
+                } else if (your_turn % 2 == 1) {
+                    my_btn.innerHTML = "✖";
+                }
+            } else {
+                my_btn.style.cursor = "not-allowed";
             }
         });
 
@@ -56,6 +61,7 @@ for (let i = 0; i < 3; i++) {
 
         my_btn.addEventListener("click", () => {
             is_click_list[index] = true; // クリックしたボタンを固定
+            my_btn.style.color = "black";
             gameStart(my_btn, index);
 
             current_turn = your_turn %2 ? "✖'s Turn" : "〇's Turn";
