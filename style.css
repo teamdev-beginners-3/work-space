@@ -44,6 +44,10 @@ button:focus {
     color: rgba(153, 150, 150, 0.7);
 }
 
+.mybtn:active {
+    outline: none!important;
+}
+
 .game-end-screen {
     width: 100vw;
     height: 100vh;
@@ -71,3 +75,7 @@ button:focus {
     color: white;
 }
 
+.mode-button {
+    width: 200px;
+    height: 100px;
+}
