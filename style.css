@@ -1,7 +1,3 @@
-body{
-    background-color:rgb(194, 219, 255);
-    animation:box-animation 6s;
-}
 
 button {
     width: 100px;
@@ -43,25 +39,8 @@ button:focus {
 #target{
     margin: 0 auto;
     margin-top: 6rem;
-    background-color:rgb(194, 219, 255);
-
     animation: box-animation 6s;
 }
-
-@keyframes box-animation{
-    0%{
-      background-color: rgb(15, 143, 255);  
-    }
-
-    50%{
-        background-color: rgb(101, 183, 241);
-    }
-    100%{
-        background-color: rgb(174, 212, 245);
-    }
-}
-
-
 
 
 
