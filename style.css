@@ -1,3 +1,8 @@
+body{
+    background-color:rgb(194, 219, 255);
+    animation:box-animation 6s;
+}
+
 button {
     width: 100px;
     height: 100px;
@@ -19,14 +24,42 @@ button:focus {
 
 .bottom-line{
     border-bottom: 3px solid black;
+
+}
+
+.button-effect-circle {
+    box-shadow: inset 0 0 10px  rgb(255, 0, 0), 
+                inset 0 0 20px  rgb(255, 27, 27), 
+                inset 0 0 30px  rgb(255, 85, 85);
+}
+.button-effect-cross{
+    box-shadow: inset 0 0 10px rgb(62, 23, 235), 
+                inset 0 0 20px rgb(23, 23, 242), 
+                inset 0 0 30px rgb(7, 145, 231);
+                
 }
 
 
 #target{
     margin: 0 auto;
     margin-top: 6rem;
+    background-color:rgb(194, 219, 255);
+
+    animation: box-animation 6s;
 }
 
+@keyframes box-animation{
+    0%{
+      background-color: rgb(15, 143, 255);  
+    }
+
+    50%{
+        background-color: rgb(101, 183, 241);
+    }
+    100%{
+        background-color: rgb(174, 212, 245);
+    }
+}
 
 
 
