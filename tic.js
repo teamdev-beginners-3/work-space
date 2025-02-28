@@ -39,7 +39,7 @@ for (let i = 0; i < 3; i++) {
             my_btn.classList.add("bottom-line");
         }
 
-        my_btn.innerHTML = index; // 初期値だけ管理している番号で表示する
+        // my_btn.innerHTML = index; // 初期値だけ管理している番号で表示する
         
         
         // ボタンにイベントを追加
@@ -57,11 +57,12 @@ for (let i = 0; i < 3; i++) {
 
         my_btn.addEventListener("mouseleave", () => {
             if (!is_click_list[index]) {
-                my_btn.innerHTML = index; //マウス離れた時の表示(クリック後はclickイベントで変更したテキストが表示の優先)
+                my_btn.innerHTML = ""; //マウス離れた時の表示(クリック後はclickイベントで変更したテキストが表示の優先)
             }
         });
 
         my_btn.addEventListener("click", () => {
+            my_btn.disabled = "disabled";
             is_click_list[index] = true; // クリックしたボタンを固定
             my_btn.style.color = "black";
             gameStart(my_btn, index);
@@ -176,7 +177,7 @@ my_root.append(header);
 
 // モード選択用のコンテナ
 mode_selection = document.createElement("div");
-mode_selection.classList.add("d-flex", "justify-content-center", "align-items-center", "flex-column", "mt-3");
+mode_selection.classList.add("d-flex", "justify-content-center", "align-items-center", "mt-3");
 mode_selection.style.display = "block";
 
 // 1対1対戦ボタン
