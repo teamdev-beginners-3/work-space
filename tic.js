@@ -65,10 +65,14 @@ for (let i = 0; i < 3; i++) {
             my_btn.disabled = "disabled";
             is_click_list[index] = true; // クリックしたボタンを固定
             my_btn.style.color = "black";
+            
             gameStart(my_btn, index);
 
-            current_turn = your_turn %2 ? "✖'s Turn" : "〇's Turn";
-            footer.innerHTML = current_turn;
+            if(your_turn%2 == 0){
+                my_btn.classList.add("button-effect-cross")  ////マーク設置後に領域が光るように設定
+            } else {
+                my_btn.classList.add("button-effect-circle")
+            }
 
 
             if(gameJudge() && your_turn % 2 === 0){
@@ -229,6 +233,7 @@ function cpuMove() {
             let my_btn = document.getElementsByClassName("mybtn")[index];
             my_btn.innerHTML = "✖";
             my_btn.style.color = "black";
+            my_btn.classList.add("button-effect-cross") //マーク設置後に領域が光るように設定
             is_click_list[index] = true;
             game_board[row][column] = -1;
             your_turn++;
